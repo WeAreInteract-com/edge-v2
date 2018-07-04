@@ -34,7 +34,7 @@ exit /b 0
 
 :build
 
-set DESTDIR=%DESTDIRROOT%\%1\%3
+set DESTDIR=%DESTDIRROOT%\%1\%3-electron
 if exist "%DESTDIR%\node.exe" goto gyp
 if not exist "%DESTDIR%\NUL" mkdir "%DESTDIR%"
 echo Downloading node.exe %2 %3...
@@ -54,7 +54,7 @@ if not exist "%GYP%" (
     exit /b -1
 )
 
-"%NODEEXE%" "%GYP%" configure build --msvs_version=2015 -%FLAVOR%
+"%NODEEXE%" "%GYP%" configure build --target=1.7.10 --dist-url=https://atom.io/download/atom-shell --msvs_version=2015 -%FLAVOR%
 if %ERRORLEVEL% neq 0 (
     echo Error building edge.node %FLAVOR% for node.js %2 v%3
     exit /b -1
