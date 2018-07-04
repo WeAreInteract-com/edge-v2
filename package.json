@@ -47,6 +47,7 @@
     "url": "http://github.com/tjanczuk/edge/issues"
   },
   "scripts": {
+    "install": "echo \"Ignore native build\"",
     "test": "node tools/test.js",
     "jshint": "node ./tools/runJsHint.js"
   }
